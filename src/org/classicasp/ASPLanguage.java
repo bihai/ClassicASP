@@ -8,7 +8,7 @@ import org.classicasp.lexer.ASPTokenId;
  *
  * @author mobrien
  */
-@LanguageRegistration(mimeType = "text/asp")
+@LanguageRegistration(mimeType = "text/x-asp")
 public class ASPLanguage extends DefaultLanguageConfig
 {
     @Override

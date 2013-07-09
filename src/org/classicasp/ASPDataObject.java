@@ -30,7 +30,7 @@ import org.openide.windows.TopComponent;
     extension={ "asp", "ASP" }
 )
 @DataObject.Registration(
-    mimeType = "text/asp", 
+    mimeType = "text/x-asp", 
     iconBase = "org/classicasp/ASP-Icon.gif",
     displayName="#LBL_ASP_LOADER",
     position=300
@@ -91,7 +91,7 @@ public class ASPDataObject extends MultiDataObject {
 
     public ASPDataObject(FileObject pf, MultiFileLoader loader) throws DataObjectExistsException, IOException {
         super(pf, loader);
-        registerEditor("text/asp", true);
+        registerEditor("text/x-asp", true);
     }
 
     @Override
@@ -102,7 +102,7 @@ public class ASPDataObject extends MultiDataObject {
     @MultiViewElement.Registration(
         displayName = "#LBL_ASP_EDITOR",
         iconBase = "org/classicasp/ASP-Icon.gif",
-        mimeType = "text/asp",
+        mimeType = "text/x-asp",
         persistenceType = TopComponent.PERSISTENCE_ONLY_OPENED,
         preferredID = "ASP",
         position = 1000

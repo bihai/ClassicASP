@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package org.classicasp.lexer;
 import org.netbeans.api.lexer.TokenId;
 import org.netbeans.api.lexer.Language;
@@ -41,7 +37,7 @@ public class ASPTokenId implements TokenId
         return name;
     }
     
-    public static Language<ASPTokenId>getLanguage()
+    public static Language<ASPTokenId> getLanguage()
     {
         return new ASPLanguageHierarchy().language();
     }
