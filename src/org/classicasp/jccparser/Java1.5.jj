@@ -28,7 +28,7 @@
 
 options {
   JAVA_UNICODE_ESCAPE = true;
-  ERROR_REPORTING = false;
+  ERROR_REPORTING = true;
   STATIC = false;
   COMMON_TOKEN_ACTION = false;
   TOKEN_FACTORY = "MyToken";
@@ -39,6 +39,7 @@ PARSER_BEGIN(JavaParser)
 
 package org.classicasp.jccparser;
 import java.io.*;
+import java.util.*;
 
 /**
  * Grammar to parse Java version 1.5
