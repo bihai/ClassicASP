@@ -1,10 +1,9 @@
 package org.classicasp;
+
 import org.netbeans.api.lexer.Language;
 import org.netbeans.modules.csl.spi.DefaultLanguageConfig;
 import org.netbeans.modules.csl.spi.LanguageRegistration;
-import org.netbeans.modules.parsing.spi.Parser;
 import org.classicasp.lexer.ASPTokenId;
-import org.classicasp.parser.ASPParser;
 
 
 /**
@@ -24,11 +23,5 @@ public class ASPLanguage extends DefaultLanguageConfig
     public String getDisplayName()
     {
         return "ASP";
-    }
-    
-    @Override
-    public Parser getParser()
-    {
-        return new ASPParser();
     }
 }

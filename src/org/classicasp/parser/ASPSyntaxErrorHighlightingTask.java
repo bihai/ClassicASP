@@ -18,8 +18,6 @@ import org.netbeans.spi.editor.hints.HintsController;
 import org.netbeans.spi.editor.hints.Severity;
 import org.openide.text.NbDocument;
 import org.openide.util.Exceptions;
-import org.classicasp.jccparser.ParseException;
-import org.classicasp.jccparser.Token;
 import org.classicasp.parser.ASPParser.ASPParserResult;
 
 /**

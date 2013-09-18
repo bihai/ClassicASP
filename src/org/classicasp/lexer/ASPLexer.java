@@ -3,11 +3,10 @@
  * and open the template in the editor.
  */
 package org.classicasp.lexer;
+import org.netbeans.api.lexer.Token;
 import org.netbeans.spi.lexer.Lexer;
+import org.netbeans.spi.lexer.LexerInput;
 import org.netbeans.spi.lexer.LexerRestartInfo;
-import org.classicasp.jcclexer.JavaCharStream;
-import org.classicasp.jcclexer.JavaParserTokenManager;
-import org.classicasp.jcclexer.Token;
 
 /**
  *
@@ -16,25 +15,26 @@ import org.classicasp.jcclexer.Token;
 class ASPLexer implements Lexer<ASPTokenId>
 {
     private LexerRestartInfo<ASPTokenId> info;
-    private JavaParserTokenManager javaParserTokenManager;
+    private LexerInput input;
     
     ASPLexer(LexerRestartInfo<ASPTokenId> info)
     {
         this.info = info;
-        JavaCharStream stream = new JavaCharStream(info.input());
-        javaParserTokenManager = new JavaParserTokenManager(stream);
+        this.input = info.input();
     }
     
     @Override
-    public org.netbeans.api.lexer.Token<ASPTokenId> nextToken()
+    public Token<ASPTokenId> nextToken()
     {
-        Token token = javaParserTokenManager.getNextToken();
-        if(info.input().readLength() < 1)
+        while(true)
         {
-            return null;
+            int ch = input.read();
+            switch(ch)
+            {
+                default:
+                    return token(ASPTokenId.WHITESPACE);
+            }
         }
-        
-        return info.tokenFactory().createToken(ASPLanguageHierarchy.getToken(token.kind));
     }
     
     @Override
@@ -46,5 +46,10 @@ class ASPLexer implements Lexer<ASPTokenId>
     @Override
     public void release()
     {
+    }
+    
+    private Token<ASPTokenId> token(ASPTokenId id)
+    {
+        return info.tokenFactory().createToken(id);
     }
 }
